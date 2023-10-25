@@ -47,3 +47,4 @@ int	main(void)
 	printf("%s\n", string2);
 	return (0);
 }*/
+//test
