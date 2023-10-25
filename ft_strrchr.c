@@ -28,9 +28,9 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)s + (len - 1));
 		len--;
 	}
-	return (0);
+	return (NULL);
 }
-
+/*
 int	main(int argc, char *argv[])
 {
 	(void)argc;
@@ -42,4 +42,4 @@ int	main(int argc, char *argv[])
 	printf("My function's result is %p\n", p);
 	printf("The official strrchr's result is %p", p2);
 	return (0);
-}
+}*/

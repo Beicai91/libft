@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <string.h>
 
-char *ft_strchr(const char *s, char c)
+char *ft_strchr(const char *s, int c)
 {
 	int	i;
 	int	len;
@@ -22,12 +22,12 @@ char *ft_strchr(const char *s, char c)
 	while (s[len])
 		len++;
 	if (c == '\0')
-		return (s + len);
+		return ((char *)s + len);
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
-			return (s + i);
+			return ((char *)s + i);
 		i++;
 	}
 	return (NULL);
