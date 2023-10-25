@@ -13,28 +13,24 @@
 #include <stdio.h>
 #include <string.h>
 
-char	*ft_strrchr(char *s, char c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
 	int		len;
-	char	*position;
 
-	position = NULL;
 	len = 0;
 	while (s[len])
 		len++;
 	if (c == '\0')
-		position = s + len;	
-	i = 0;
-	while (s[i])
+		return ((char *)s + len);	
+	while (len >= 0)
 	{
-		if (s[i] == c)
-			position = s + i;
-		i++;
+		if (s[len - 1] == c)
+			return ((char *)s + (len - 1));
+		len--;
 	}
-	return (position);
+	return (0);
 }
-/*
+
 int	main(int argc, char *argv[])
 {
 	(void)argc;
@@ -46,4 +42,4 @@ int	main(int argc, char *argv[])
 	printf("My function's result is %p\n", p);
 	printf("The official strrchr's result is %p", p2);
 	return (0);
-}*/
+}
