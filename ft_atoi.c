@@ -1,45 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 17:31:43 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/26 20:25:53 by bcai             ###   ########.fr       */
+/*   Created: 2023/10/26 23:31:08 by bcai              #+#    #+#             */
+/*   Updated: 2023/10/27 00:10:43 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-#include <stddef.h>
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_atoi(const char *str)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
-	size_t			i;
+	char	*p;
+	int	i;
+	int	indicator;
+	int	result;
 
-	p1 = (unsigned char *)s1;
-	p2 = (unsigned char *)s2;
+	p = (char *)str;
 	i = 0;
-	while (i < n)
+	indicator = 1;
+	result = 0;
+	while((p[i] >= 9 && p[i] <= 13) || p[i] == 32)
+		i++;
+	if (p[i] == '-' || p[i] == '+')
 	{
-		if (p1[i] != p2[i])
-			return (p1[i] - p2[i]);
+		if (p[i] == '-')
+			indicator *= -1;
 		i++;
 	}
-	return (0);
+	while (p[i] >= '0' && p[i] <= '9')
+	{
+		result = result * 10 + (p[i] - 48) * indicator;
+		i++;
+	}
+	return (result);
 }
 /*
 int	main(int argc, char *argv[])
 {
-		(void)argc;
-		size_t n;
+	(void)argc;
 
-		n = atoi(argv[3]);
-		printf("my function %d\n", ft_memcmp(argv[1], argv[2], n));
-		printf("official memcmp %d\n", memcmp(argv[1], argv[2], n));
-		return (0);
+	printf("my function %d\n", ft_atoi(argv[1]));
+	printf("official atoi %d\n", atoi(argv[1]));
+	return (0);
 }*/

@@ -6,14 +6,15 @@
 /*   By: bcai <marvin@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:28:01 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/23 17:50:24 by bcai             ###   ########.fr       */
+/*   Updated: 2023/10/26 22:14:08 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 	int	len;
@@ -31,7 +32,7 @@ char *ft_strchr(const char *s, int c)
 		i++;
 	}
 	return (NULL);
-}	
+}
 /*
 int	main(int argc, char *argv[])
 {

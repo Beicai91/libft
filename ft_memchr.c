@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcai <marvin@42lausanne.ch>                +#+  +:+       +#+        */
+/*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 13:25:10 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/26 12:22:25 by bcai             ###   ########.fr       */
+/*   Created: 2023/10/26 22:54:19 by bcai              #+#    #+#             */
+/*   Updated: 2023/10/26 22:59:02 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57))
-		return (1);
-	else
-		return (0);
+	unsigned char	*p;
+	size_t		i;
+
+	p = (unsigned char *)s;
+	i = 0;
+	while (p[i] && i < n)
+	{
+		if (p[i] == c)
+			return (p + i);
+		i++;
+	}
+	return (NULL);
 }

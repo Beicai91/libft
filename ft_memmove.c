@@ -6,21 +6,23 @@
 /*   By: bcai <marvin@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 09:37:23 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/25 10:31:31 by bcai             ###   ########.fr       */
+/*   Updated: 2023/10/26 12:18:20 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	void *original_dst;
+	void	*original_dst;
 
 	original_dst = dst;
 	if (dst < src)
 	{
 		while (len--)
 		{
-			*(char*)dst = *(char*)src;
+			*(char *)dst = *(char *)src;
 			dst++;
 			src++;
 		}
@@ -28,11 +30,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	else
 	{
 		while (len--)
-			*((char*)dst + len) = *((char*)src + len);
+			*((char *)dst + len) = *((char *)src + len);
 	}
 	return (original_dst);
 }
-/*	
+/*
 int	main(void)
 {
 	char string[100] = "moraycatbanana";
@@ -47,4 +49,12 @@ int	main(void)
 	printf("%s\n", string2);
 	return (0);
 }*/
-//test
+/*
+int	main(void)
+{
+		char dst[] = "";
+	printf("original dst is %p\n", dst);
+		char src[] = "";
+	printf("memmove return (%p\n", ft_memmove(dst, src, 1)));
+		return (0);
+}*/

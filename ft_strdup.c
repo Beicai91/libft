@@ -1,45 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 17:31:43 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/26 20:25:53 by bcai             ###   ########.fr       */
+/*   Created: 2023/10/27 00:24:29 by bcai              #+#    #+#             */
+/*   Updated: 2023/10/27 00:40:30 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-#include <stddef.h>
-#include <stdio.h>
+
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
+#include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
-	size_t			i;
+	char *dup;
+	int	len;
+	int	i;
 
-	p1 = (unsigned char *)s1;
-	p2 = (unsigned char *)s2;
+	len = 0;
+	while (s1[len])
+		len++;
+	dup = (char *)malloc(sizeof(char) * (len + 1));
+	if (dup == NULL)
+		return (NULL);
 	i = 0;
-	while (i < n)
+	while(i < len)
 	{
-		if (p1[i] != p2[i])
-			return (p1[i] - p2[i]);
+		dup[i] = s1[i];
 		i++;
 	}
-	return (0);
+	dup[i] = '\0';
+	return (dup);
 }
 /*
 int	main(int argc, char *argv[])
 {
-		(void)argc;
-		size_t n;
+	(void)argc;
 
-		n = atoi(argv[3]);
-		printf("my function %d\n", ft_memcmp(argv[1], argv[2], n));
-		printf("official memcmp %d\n", memcmp(argv[1], argv[2], n));
-		return (0);
+	char	*p1;
+	char	*p2;
+	p1 = ft_strdup(argv[1]);
+	p2 = strdup(argv[1]);
+	printf("my function %s\n", p1);
+	printf("official strdup %s\n", p2);
+	free(p1);
+	free(p2);
+	return (0);
 }*/
