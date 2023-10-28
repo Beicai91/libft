@@ -1,53 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 00:24:29 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/27 00:40:30 by bcai             ###   ########.fr       */
+/*   Created: 2023/10/27 10:58:37 by bcai              #+#    #+#             */
+/*   Updated: 2023/10/27 16:21:00 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*dup;
-	int		len;
-	int		i;
+	char		*sub;
 
-	len = 0;
-	while (s1[len])
-		len++;
-	dup = (char *)malloc(sizeof(char) * (len + 1));
-	if (dup == NULL)
+	if (!s)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		dup[i] = s1[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
+	if (start >= ft_strlen(s))
+		return (NULL);
+	sub = (char *)malloc((len + 1) * sizeof(char));
+	if (!sub)
+		return (NULL);
+	ft_strlcpy(sub, s + start, len + 1);
+	return (sub);
 }
 /*
 int	main(int argc, char *argv[])
 {
 	(void)argc;
-
-	char	*p1;
-	char	*p2;
-	p1 = ft_strdup(argv[1]);
-	p2 = strdup(argv[1]);
-	printf("my function %s\n", p1);
-	printf("official strdup %s\n", p2);
-	free(p1);
-	free(p2);
+	unsigned int	start = atoi(argv[2]);
+	size_t	len = atoi(argv[3]);
+	char	*sub = ft_substr(argv[1], start, len);
+	printf("the substring is %s\n", sub);
 	return (0);
 }*/

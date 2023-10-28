@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 23:31:08 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/27 00:10:43 by bcai             ###   ########.fr       */
+/*   Created: 2023/10/27 13:57:14 by bcai              #+#    #+#             */
+/*   Updated: 2023/10/27 16:31:27 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*p;
-	int		i;
-	int		indicator;
-	int		result;
+	int		start;
+	int		end;
+	char	*res;
 
-	p = (char *)str;
-	i = 0;
-	indicator = 1;
-	result = 0;
-	while ((p[i] >= 9 && p[i] <= 13) || p[i] == 32)
-		i++;
-	if (p[i] == '-' || p[i] == '+')
-	{
-		if (p[i] == '-')
-			indicator *= -1;
-		i++;
-	}
-	while (p[i] >= '0' && p[i] <= '9')
-	{
-		result = result * 10 + (p[i] - 48) * indicator;
-		i++;
-	}
-	return (result);
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (s1[end] && ft_strchr(set, s1[end]))
+		end--;
+	res = ft_substr(s1, start, end - start + 1);
+	return (res);
 }
 /*
 int	main(int argc, char *argv[])
 {
 	(void)argc;
 
-	printf("my function %d\n", ft_atoi(argv[1]));
-	printf("official atoi %d\n", atoi(argv[1]));
+	char *res;
+	res = ft_strtrim(argv[1], argv[2]);
+	printf("trimmed string %s\n", res);
 	return (0);
 }*/

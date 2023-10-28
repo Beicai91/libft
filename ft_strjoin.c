@@ -1,51 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 23:31:08 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/27 00:10:43 by bcai             ###   ########.fr       */
+/*   Created: 2023/10/27 12:01:30 by bcai              #+#    #+#             */
+/*   Updated: 2023/10/27 12:42:29 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*p;
-	int		i;
-	int		indicator;
-	int		result;
+	int		len;
+	char	*join;
 
-	p = (char *)str;
-	i = 0;
-	indicator = 1;
-	result = 0;
-	while ((p[i] >= 9 && p[i] <= 13) || p[i] == 32)
-		i++;
-	if (p[i] == '-' || p[i] == '+')
-	{
-		if (p[i] == '-')
-			indicator *= -1;
-		i++;
-	}
-	while (p[i] >= '0' && p[i] <= '9')
-	{
-		result = result * 10 + (p[i] - 48) * indicator;
-		i++;
-	}
-	return (result);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	printf("total length %d\n", len);
+	join = (char *)malloc((len + 1) * sizeof(char));
+	if (!join)
+		return (NULL);
+	ft_strlcat(join, s1, len + 1);
+	ft_strlcat(join, s2, len + 1);
+	return (join);
 }
 /*
 int	main(int argc, char *argv[])
 {
 	(void)argc;
-
-	printf("my function %d\n", ft_atoi(argv[1]));
-	printf("official atoi %d\n", atoi(argv[1]));
+	printf("the joined string is %s\n", ft_strjoin(argv[1], argv[2]));
 	return (0);
 }*/

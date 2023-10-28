@@ -10,27 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char		*ph;
-	char		*pn;
+	char	*ph;
+	char	*pn;
 	size_t	i;
 	size_t	nlen;
 
 	pn = (char *)needle;
 	ph = (char *)haystack;
-	nlen = 0;
-	while (pn[nlen])
-		nlen++;
+	nlen = ft_strlen(pn);
 	if (needle == NULL)
 		return ((char *)haystack);
 	i = 0;
-	while (*ph++ && len-- > 0)
+	while (*ph && len > 0)
 	{
 		if (*ph == *pn)
 		{
@@ -39,6 +37,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			if (i == nlen)
 				return (ph);
 		}
+		ph++;
+		len--;
 	}
 	return (NULL);
 }
