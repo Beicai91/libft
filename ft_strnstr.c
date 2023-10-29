@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:02:00 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/26 23:29:58 by bcai             ###   ########.fr       */
+/*   Updated: 2023/10/28 22:36:57 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,27 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	char	*ph;
 	char	*pn;
 	size_t	i;
-	size_t	nlen;
 
 	pn = (char *)needle;
 	ph = (char *)haystack;
-	nlen = ft_strlen(pn);
-	if (needle == NULL)
+	if (needle == 0 || *needle == '\0')
 		return ((char *)haystack);
 	i = 0;
 	while (*ph && len > 0)
 	{
 		if (*ph == *pn)
 		{
-			while (ph[i] == pn[i])
+			while (ph[i] == pn[i] && len > 0)
+			{
 				i++;
-			if (i == nlen)
+				len--;
+			}
+			if (i == ft_strlen(pn) && len >= 0)
 				return (ph);
 		}
 		ph++;
-		len--;
+		if (len > 0)
+			len--;
 	}
 	return (NULL);
 }
@@ -50,5 +52,6 @@ int	main(int argc, char *argv[])
 	size_t len = atoi(argv[3]);
 	printf("my function %p\n", ft_strnstr(argv[1], argv[2], len));
 	printf("official strnstr %p\n", strnstr(argv[1], argv[2], len));
+	printf("haystack's address %p\n", argv[1]);
 	return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:23:44 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/28 01:21:21 by bcai             ###   ########.fr       */
+/*   Updated: 2023/10/28 23:52:11 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define LIBFT_H
 
 # include <stddef.h>
+
+/*
+typeof struct	s_list
+{
+	void	*content;
+	struct s_list	*next;
+} t_list;*/
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
@@ -43,5 +50,11 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif

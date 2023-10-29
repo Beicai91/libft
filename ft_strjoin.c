@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:01:30 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/27 12:42:29 by bcai             ###   ########.fr       */
+/*   Updated: 2023/10/28 22:41:18 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,7 +19,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*join;
 
 	len = ft_strlen(s1) + ft_strlen(s2);
-	printf("total length %d\n", len);
 	join = (char *)malloc((len + 1) * sizeof(char));
 	if (!join)
 		return (NULL);

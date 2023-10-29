@@ -6,12 +6,11 @@
 /*   By: bcai <marvin@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:58:52 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/26 12:25:34 by bcai             ###   ########.fr       */
+/*   Updated: 2023/10/28 19:18:34 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

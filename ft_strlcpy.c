@@ -9,7 +9,6 @@
 /*   Updated: 2023/10/28 01:21:41 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
