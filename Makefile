@@ -35,9 +35,19 @@ SRCS = ft_bzero.c\
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c \
 
+BONUS = ft_lstnew.c \
+	   ft_lstadd_front.c \
+	   ft_lstsize.c \
+	   ft_lstlast.c \
+	   ft_lstadd_back.c \
+	   ft_lstdelone.c \
+	   ft_lstclear.c \
+	   ft_lstiter.c \
+	   ft_lstmap.c \
           
 BUILD = build
 OBJS = $(patsubst %.c, $(BUILD)/%.o, $(SRCS))
+OBJS_B = $(patsubst %.c, $(BUILD)/%.o, $(BONUS))
 HEAD = libft.h
 NAME = libft.a
 
@@ -49,6 +59,10 @@ $(BUILD)/%.o: %.c | $(BUILD)
 
 $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
+	ranlib $(NAME)
+
+bonus: $(OBJS_B)
+	ar rc $(NAME) $(OBJS_B)
 	ranlib $(NAME)
 
 all: $(NAME)

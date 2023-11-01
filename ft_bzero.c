@@ -6,7 +6,7 @@
 /*   By: bcai <marvin@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:58:52 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/28 19:18:34 by bcai             ###   ########.fr       */
+/*   Updated: 2023/11/01 14:11:47 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*p;
 	size_t			i;
 
+	if (!s)
+		return ;
 	p = (unsigned char *)s;
 	i = 0;
 	if (n == 0)
