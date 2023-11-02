@@ -13,6 +13,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+static void	*ft_free(char **s)
+{
+	char	**temp;
+
+	temp = s;
+	while (*s)
+		free(*s++);
+	free(temp);
+	return (NULL);
+}
+
 static int	count_strings(char const *s, char c)
 {
 	char	*p;
@@ -20,22 +31,25 @@ static int	count_strings(char const *s, char c)
 
 	p = (char *)s;
 	count = 0;
-	while (*p && ft_strchr(p, c))
+	while (*p)
 	{
-		p = ft_strchr(p, c) + 1;
-		count++;
+		while (*p && *p == c)
+			p++;
+		if (*p)
+			count++;
+		while (*p && *p != c)
+			p++;
 	}
-	return (count + 1);
+	return (count);
 }
 
 static int	get_len(char *s_moved, char c)
 {
 	int	len;
 
-	if (ft_strchr(s_moved, c))
-		len = ft_strchr(s_moved, c) - s_moved;
-	else
-		len = ft_strlen(s_moved);
+	len = 0;
+	while (s_moved[len] && s_moved[len] != c)
+		len++;
 	return (len);
 }
 
@@ -63,12 +77,14 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	ps = (char *)s;
 	i = -1;
-	while (*ps)
+	while (*ps && count_strings(s, c) > 0)
 	{
 		while (*ps && *ps == c)
 			ps++;
 		if (*ps)
 			ptr[++i] = get_word(ps, c);
+		if (!ptr[i])
+			return (ft_free(ptr));
 		while (*ps && *ps != c)
 			ps++;
 	}

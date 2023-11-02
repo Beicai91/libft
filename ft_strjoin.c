@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:01:30 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/28 22:41:18 by bcai             ###   ########.fr       */
+/*   Updated: 2023/11/02 12:34:44 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	join = (char *)malloc((len + 1) * sizeof(char));
 	if (!join)
 		return (NULL);
-	ft_strlcat(join, s1, len + 1);
+	ft_strlcpy(join, s1, len + 1);
 	ft_strlcat(join, s2, len + 1);
 	return (join);
 }

@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		if (*ph == *needle)
 		{
-			while (ph[i] == needle[i] && len > 0)
+			while (ph[i] && ph[i] == needle[i] && len > 0)
 			{
 				i++;
 				len--;
@@ -45,9 +45,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 /*
 int	main(int argc, char *argv[])
 {
-	(void)argc;
+	size_t	len;
 
-	size_t len = atoi(argv[3]);
+	(void)argc;
+	len = atoi(argv[3]);
 	printf("my function %p\n", ft_strnstr(argv[1], argv[2], len));
 	printf("official strnstr %p\n", strnstr(argv[1], argv[2], len));
 	printf("haystack's address %p\n", argv[1]);

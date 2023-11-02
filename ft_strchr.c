@@ -17,6 +17,24 @@
 char	*ft_strchr(const char *s, int c)
 {
 	int	i;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char *)s + i);
+	return (NULL);
+}
+/* This doesnt pass, I dont know why
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
 	int	len;
 
 	len = 0;
@@ -32,17 +50,17 @@ char	*ft_strchr(const char *s, int c)
 		i++;
 	}
 	return (NULL);
-}
-/*
-int	main(int argc, char *argv[])
-{
-	(void)argc;
-	char *p;
-	char *p2;
-
-	p = ft_strchr(argv[1], argv[2][0]);
-	p2 = strchr(argv[1], argv[2][0]);
-	printf("My strchr result is %p\n", p);
-	printf("The official strchr result is %p", p2);
-	return (0);
 }*/
+
+// int	main(int argc, char *argv[])
+// {
+// 	(void)argc;
+// 	char *p;
+// 	char *p2;
+
+// 	p = ft_strchr(argv[1], argv[2][0]);
+// 	p2 = strchr(argv[1], argv[2][0]);
+// 	printf("My strchr result is %p\n", p);
+// 	printf("The official strchr result is %p", p2);
+// 	return (0);
+// }

@@ -45,16 +45,12 @@ BONUS = ft_lstnew.c \
 	   ft_lstiter.c \
 	   ft_lstmap.c \
           
-BUILD = build
-OBJS = $(patsubst %.c, $(BUILD)/%.o, $(SRCS))
-OBJS_B = $(patsubst %.c, $(BUILD)/%.o, $(BONUS))
+OBJS = $(patsubst %.c, %.o, $(SRCS))
+OBJS_B = $(patsubst %.c, %.o, $(BONUS))
 HEAD = libft.h
 NAME = libft.a
 
-$(BUILD):
-	mkdir $@
-
-$(BUILD)/%.o: %.c | $(BUILD)
+%.o: %.c 
 	$(CC) $(CFLAGS) -I$(HEAD) -c $< -o $@
 
 $(NAME): $(OBJS)
@@ -66,8 +62,10 @@ bonus: $(OBJS_B)
 	ranlib $(NAME)
 
 all: $(NAME)
+
 clean:
-	rm -rf $(BUILD)
+	rm -rf $(OBJS) $(OBJS_B)
+
 fclean: clean
 	rm -f $(NAME)
 
