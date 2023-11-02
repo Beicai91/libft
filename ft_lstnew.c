@@ -9,9 +9,9 @@
 /*   Updated: 2023/10/30 09:36:57 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)
 {
@@ -32,4 +32,3 @@ int	main(void)
 	printf("%s\n", node->content);
 	return (0);
 }*/
-

@@ -9,14 +9,14 @@
 /*   Updated: 2023/10/30 12:06:18 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {
-	int	len;
-	t_list *temp;
+	int		len;
+	t_list	*temp;
 
 	len = 0;
 	if (!lst)

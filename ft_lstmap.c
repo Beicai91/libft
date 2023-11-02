@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	len;
+	int		len;
 	t_list	*res;
 	t_list	*node;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	ft_lstiter(lst, f);
+	ft_lstiter(lst, *f);
 	res = NULL;
 	while (lst != NULL)
 	{

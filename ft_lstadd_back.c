@@ -9,12 +9,12 @@
 /*   Updated: 2023/11/01 10:42:57 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (!(*lst))
 	{
@@ -52,4 +52,3 @@ int	main(void)
 	printf("%d\n", *(int *)(last->content));
 	return (0);
 }*/
-		
