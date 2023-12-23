@@ -17,19 +17,26 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p;
 	size_t			i;
 
 	if (!s)
 		return ;
-	p = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		p[i] = 0;
+		((unsigned char *)s)[i] = 0;
 		i++;
 	}
 }
+/*
+Optimization
+void	ft_bzero(void *s, size_t n)
+{
+	while (n > 0)
+		((unsigned char *)s)[--n] = 0;  //write from the tail to head 0
+}
+*/
+
 /*
 int	main(int argc, char *argv[])
 {

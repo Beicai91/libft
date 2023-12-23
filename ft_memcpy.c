@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:16:20 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/26 22:32:06 by bcai             ###   ########.fr       */
+/*   Updated: 2023/11/29 17:28:23 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (p);
 }
+/*
+Optimization
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	if (dst == NULL || src == NULL)
+		return (NULL);
+	while (n-- > 0)
+		((char *)dst)[n] = ((char *)src)[n];
+}
+*/
 /*
 int	main(void)
 {

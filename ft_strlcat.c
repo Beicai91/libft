@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:36:23 by bcai              #+#    #+#             */
-/*   Updated: 2023/11/02 12:35:19 by bcai             ###   ########.fr       */
+/*   Updated: 2023/11/30 17:15:33 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,7 +19,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	dst_len;
 	size_t	src_len;
 	size_t	i;
-	int		j;
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
@@ -28,17 +27,35 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	else
 	{
 		i = dst_len;
-		j = 0;
-		while (i < dstsize - 1 && src[j])
-		{
-			dst[i] = src[j];
-			i++;
-			j++;
-		}
+		while (i < dstsize - 1 && *src)
+			dst[i++] = *src++;
 		dst[i] = '\0';
 		return (dst_len + src_len);
 	}
 }
+/*
+Another way of thinking
+size_t	ft_strlcat(char *dst, char 8src, size_t dstsize)
+{
+	size_t	i;
+
+	i = 0;
+	if (dstsize)
+	{
+		while (dst[i] != '\0' && i < dstsize)
+			i++;
+		if (dst[i] == '\0')
+		{
+			while (*src != '\0' && i < dstsize - 1)
+				dst[i++] = *src++;
+			dst[i] = '\0';
+		}
+	}
+	while (*src++ != '\0')
+		i++;
+	return (i);
+}
+*/
 /*
 int	main(void)
 {

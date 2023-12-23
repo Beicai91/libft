@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:24:29 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/27 00:40:30 by bcai             ###   ########.fr       */
+/*   Updated: 2023/11/30 16:25:47 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ char	*ft_strdup(const char *s1)
 	dup[i] = '\0';
 	return (dup);
 }
+/*
+copy without the index i
+while (*s != '\0')
+	*dup++ = *s++;
+*dup = '\0';
+dup -= len; // set the pointer dup to the beginning
+return (dup);
+*/
 /*
 int	main(int argc, char *argv[])
 {

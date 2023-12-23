@@ -6,7 +6,7 @@
 /*   By: bcai <marvin@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:28:01 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/26 22:14:08 by bcai             ###   ########.fr       */
+/*   Updated: 2023/11/30 16:21:46 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,17 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s + i);
 	return (NULL);
 }
+/*
+Optimization
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != (char)c && *s != '\0')
+		s++;
+	if (*s == (char)c)
+		return (*s);
+	return (NULL);
+}
+*/
 /* This doesnt pass, I dont know why
 char	*ft_strchr(const char *s, int c)
 {

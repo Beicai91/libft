@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:54:19 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/26 22:59:02 by bcai             ###   ########.fr       */
+/*   Updated: 2023/11/29 17:16:41 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,14 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*p;
-
-	if (!s)
-		return (NULL);
-	p = (unsigned char *)s;
 	while (n)
 	{
-		if (*p == (unsigned char)c)
-			return ((void *)p);
+		if (*((unsigned char *)s) == (unsigned char)c)
+			return ((unsigned char *)s);
 		n--;
-		p++;
+		s = (unsigned char *)s + 1;
 	}
-	return (NULL);
+	return (NULL); // for case in which s is NULL
 }
 /*
 int	main(int argc, char *argv[])

@@ -6,7 +6,7 @@
 /*   By: bcai <bcai@student.42lausanne.ch>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:20:03 by bcai              #+#    #+#             */
-/*   Updated: 2023/10/27 18:40:12 by bcai             ###   ########.fr       */
+/*   Updated: 2023/12/01 14:56:43 by bcai             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,12 +15,12 @@
 
 static void	*ft_free(char **s)
 {
-	char	**temp;
+	int	i;
 
-	temp = s;
-	while (*s)
-		free(*s++);
-	free(temp);
+	i = 0;
+	while (s[i])
+		free(s[i++]);
+	free(s);
 	return (NULL);
 }
 

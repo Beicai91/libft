@@ -23,3 +23,15 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(p, count * size);
 	return (p);
 }
+
+/*
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*p;
+
+	size = count * size; // reuse size
+	p = malloc(size);
+	while (size > 0)
+		p[--size] = 0; //assign 0 from tail to head
+}
+*/

@@ -27,10 +27,16 @@ t_list	*ft_lstnew(void *content)
 /*
 int	main(void)
 {
-	t_list	*node;
+	t_list	*node1;
+	t_list	*node2;
 
 	char string[] = "moray";
-	node = ft_lstnew(string);
-	printf("%s\n", node->content);
+	node1 = ft_lstnew(string);
+	printf("%s\n", node1->content);
+
+	int	num = 3;
+	node2 = ft_lstnew(&num);
+	printf("%d\n", *(int *)(node2->content));
+
 	return (0);
 }*/
