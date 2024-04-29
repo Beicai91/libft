@@ -47,11 +47,10 @@ BONUS = ft_lstnew.c \
           
 OBJS = $(patsubst %.c, %.o, $(SRCS))
 OBJS_B = $(patsubst %.c, %.o, $(BONUS))
-HEAD = libft.h
 NAME = libft.a
 
 %.o: %.c 
-	$(CC) $(CFLAGS) -I$(HEAD) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
