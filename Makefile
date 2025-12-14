@@ -2,7 +2,7 @@ CC = cc
 CFLAGS = -Wextra -Werror -Wall
 
 SRCS = src/ft_bzero.c\
-	  src/ft_isalnum.c\
+	   src/ft_isalnum.c\
        src/ft_isalpha.c\
        src/ft_isascii.c\
        src/ft_isdigit.c\
@@ -17,7 +17,7 @@ SRCS = src/ft_bzero.c\
        src/ft_tolower.c\
        src/ft_toupper.c\
        src/ft_memcpy.c\
-	  src/ft_strlcat.c\
+	   src/ft_strlcat.c\
 	  src/ft_memchr.c\
 	  src/ft_strnstr.c\
 	  src/ft_atoi.c\
@@ -29,25 +29,32 @@ SRCS = src/ft_bzero.c\
 	  src/ft_strtrim.c\
 	  src/ft_itoa.c\
 	  src/ft_split.c\
-	  src/ft_strmapi.c \
-	  src/ft_striteri.c \
-	  src/ft_putchar_fd.c \
-	  src/ft_putstr_fd.c \
-	  src/ft_putendl_fd.c \
+	  src/ft_strmapi.c\
+	  src/ft_striteri.c\
+	  src/ft_putchar_fd.c\
+	  src/ft_putstr_fd.c\
+	  src/ft_putendl_fd.c\
 	  src/ft_putnbr_fd.c \
-
-BONUS = src/ft_lstnew.c \
-	   src/ft_lstadd_front.c \
-	   src/ft_lstsize.c \
-	   src/ft_lstlast.c \
-	   src/ft_lstadd_back.c \
-	   src/ft_lstdelone.c \
-	   src/ft_lstclear.c \
-	   src/ft_lstiter.c \
-	   src/ft_lstmap.c \
+	  src/get_next_line/get_next_line.c\
+	  src/get_next_line/multi_gnl.c\
+	  src/ft_printf_basic/ft_printf_basic.c\
+	  src/ft_printf_basic/ft_putchar_len.c\
+	  src/ft_printf_basic/ft_putd.c\
+	  src/ft_printf_basic/ft_putptr_fd.c\
+	  src/ft_printf_basic/ft_putstr_len.c\
+	  src/ft_printf_basic/ft_putun_fd.c\
+	  src/ft_printf_basic/ft_puthn_fd.c\
+	  src/ft_lstnew.c\
+	  src/ft_lstadd_front.c\
+	  src/ft_lstsize.c\
+	  src/ft_lstlast.c\
+	  src/ft_lstadd_back.c\
+	  src/ft_lstdelone.c\
+	  src/ft_lstclear.c\
+	  src/ft_lstiter.c\
+	  src/ft_lstmap.c
           
 OBJS = $(patsubst %.c, %.o, $(SRCS))
-OBJS_B = $(patsubst %.c, %.o, $(BONUS))
 NAME = libft.a
 
 %.o: %.c 
@@ -57,14 +64,10 @@ $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
 	ranlib $(NAME)
 
-bonus: $(OBJS_B)
-	ar rc $(NAME) $(OBJS_B)
-	ranlib $(NAME)
-
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS) $(OBJS_B)
+	rm -rf $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
